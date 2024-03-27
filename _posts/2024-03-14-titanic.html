@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -82,7 +84,7 @@
         }
         #result p {
             margin-bottom: 5px;
-            color: #000000; /* Changed text color to white */
+            color: #fff; /* Changed text color to white */
         }
     </style>
 </head>
@@ -128,7 +130,7 @@
         function predictSurvival() {
             var form = document.getElementById('titanicForm');
             var formData = new FormData(form);
-            fetch('http://localhost:8084/api/titanic/predict', {
+            fetch('http://localhost:8086/api/titanic/predict', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
