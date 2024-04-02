@@ -1,11 +1,20 @@
+---
+toc: true
+comments: false
+layout: post
+title: Iris Testing
+description: 
+type: plans
+courses: { compsci: {week: 19} }
+---
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Iris Predictor</title>
   <style>
-  
-  button {
+    button {
   position: relative;
   padding: 13px 35px;
   background: #f5ddb7;
@@ -217,16 +226,49 @@ button:hover .icon-5 {
 .fil-leaf-5 {
   fill: #3C4819
 }
-      #resultContainer {
+      @keyframes breathing {
+      0% {
+        box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.5);
+      }
+      50% {
+        box-shadow: 0 0 20px 5px rgba(112, 128, 144, 0.5);
+      }
+      100% {
+        box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.5);
+      }
+    }
+      #resultContainer { /* the box for the result when the variety is detected...*/
       background-color: #222222; 
       border: 2px solid #141414; 
       border-radius: 32px;
       padding: 20px;
       margin-top: 20px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       font-size: 24px;
       text-align: center;
+      animation: breathing 3s infinite alternate;
+      position: relative;
       }
+      #resultContainer::after {
+      content: '';
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      right: -5px;
+      bottom: -5px;
+      border-radius: 36px;
+      animation: pulsate 3s infinite;
+    }
+    @keyframes pulsate {
+      0% {
+        transform: scale(0.9);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+      100% {
+        transform: scale(0.9);
+      }
+    }
     #imageContainer {
       margin-top: 20px;
       text-align: center;
@@ -237,67 +279,40 @@ button:hover .icon-5 {
       border-radius: 8px;
       margin-top: 10px;
     }
-    .flower {
-      position: absolute;
-      width: 30px; /* Adjust the size of the flower */
-      pointer-events: none; /* Make sure the flowers don't interfere with button clicks */
-      animation: fall 5s linear infinite; /* Animation to make the flowers fall */
-    }
-
-    @keyframes fall {
-      0% { transform: translateY(-100px) rotate(0deg); opacity: 0; } /* Initial position and opacity */
-      100% { transform: translateY(100vh) rotate(360deg); opacity: 1; } /* Falling to the bottom of the screen */
-    }
-    header {
-    background-image: url('https://i.ibb.co/RSHd1kJ/image.png'); /* Background image */
-    background-size: cover; /* Cover the entire header */
-    background-position: center; /* Center the background image */
-    color: #2b2bb9; /* Text color */
-    padding: 20px; /* Padding around the text */
-    text-align: center; /* Center align text */
-}
-
-
-  /* Styles for the flower icons */
-  .icon {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, 0);
-    width: 0px;
-    height: auto;
-    transition: all .5s ease-in-out;
-    z-index: -1;
-  }
   </style>
+
 </head>
 <body>
 
-<header>
-  <h1>Iris Predictor</h1>
-</header>
+<h2>Iris Predictor</h2>
 
 
 
 
-
-<div>
+<div class="custom-input">
   <label for="sepal_length">Sepal Length:</label>
   <input type="number" id="sepal_length" step="0.1" placeholder="Enter Sepal Length">
 </div>
-<div>
+<br>
+
+<div class="custom-input">
   <label for="sepal_width">Sepal Width:</label>
   <input type="number" id="sepal_width" step="0.1" placeholder="Enter Sepal Width">
 </div>
-<div>
+<br>
+
+<div class="custom-input">
   <label for="petal_length">Petal Length:</label>
   <input type="number" id="petal_length" step="0.1" placeholder="Enter Petal Length">
 </div>
-<div>
+<br>
+
+<div class="custom-input">
   <label for="petal_width">Petal Width:</label>
   <input type="number" id="petal_width" step="0.1" placeholder="Enter Petal Width">
 </div>
 <br>
+
 <div>
   <button onclick="predictIris()">Submit</button>
 </div>
@@ -307,6 +322,10 @@ button:hover .icon-5 {
 <br>
 
 <div id="imageContainer"></div>
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
 <br>
@@ -330,32 +349,9 @@ button:hover .icon-5 {
     <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" viewBox="0 0 513.57 1042.57" xmlns:xlink="http://www.w3.org/1999/xlink"><defs></defs><g id="Layer_x0020_1"><metadata id="CorelCorpID_0Corel-Layer"></metadata><path class="fil-leaf-5" d="M207.74 252.52c0,0 -3.36,127.53 94.31,130.89 0,0 36.92,0.67 66.79,-32.89 0,0 -39.94,-10.4 -50.01,-47.99 -10.07,-37.59 63.1,-27.52 82.23,3.36 0,0 17.47,-34.44 35.17,-77.24 -60.5,-36.51 -169.57,-35.65 -182.77,-35.4 -16.15,16.52 -28.62,31.28 -37.69,42.91l-0 -0c-3.79,4.86 -6.98,9.18 -9.61,12.86l0.02 -0.03c-0.48,0.66 -0.93,1.31 -1.37,1.93l-0.05 0.08 -0.05 0.07 -0.05 0.07 -0.05 0.07 -0.05 0.07 -0.05 0.07 -0.05 0.07 -0.05 0.07 -0.05 0.07 -0.7 1 -0.05 0.07 -0.05 0.07 -0.05 0.07 -0.05 0.07 -0.05 0.07 -0.05 0.07 -0.05 0.07 -0.05 0.07 -0.05 0.07 -0.05 0.07 -0.05 0.07 -0.05 0.07 -0.05 0.07 -0.05 0.07 -0.05 0.07 -0.05 0.07c1.63,-0.35 3.25,-0.73 4.87,-1.16zm202.05 -202.04c0,0 -10.74,-24.5 15.1,-37.92 25.84,-13.42 40.95,2.68 38.93,7.72 -2.01,5.03 -36.92,38.6 -54.03,30.21zm41.95 28.86c0,0 3.69,-24.84 23.16,-20.14 19.47,4.7 -2.35,24.16 -6.71,25.51 -4.36,1.34 -17.79,3.36 -16.45,-5.37zm-13.33 143.98c6.34,-15.57 12.61,-32.08 18.03,-48.32 0,0 -14.77,-5.71 -43.63,-9.06 -28.86,-3.36 -48.67,-8.06 -47.99,-20.47 0.67,-12.42 19.47,-12.42 31.21,-12.08 11.75,0.34 44.3,9.4 65.45,21.48 0,0 6.06,-15.02 14,-34.26 -13.59,-6.7 -55.53,-24.2 -111.04,-17.16 -44.54,28.56 -79.28,58.2 -105.29,84.07 26.84,-0.04 122.78,2.26 179.27,35.82zm39.24 -107.98c11.26,-27.2 25.32,-60.47 31.48,-72.24 2.59,-4.94 4.04,-8.91 4.44,-12.19l-0.07 0.03c-7.86,2.78 -15.55,5.64 -23.08,8.58l-0.06 0.03c-43.75,17.09 -81.99,36.73 -115.12,57.12 50.7,-3.62 88.86,12.06 102.42,18.68zm-266.36 117.31l-0 0 0.19 -0.24c1.61,-2.06 3.33,-4.22 5.15,-6.47l0.6 -0.74c1.8,-2.22 3.71,-4.51 5.72,-6.89l0.53 -0.62c0.65,-0.77 1.31,-1.54 1.99,-2.33l0.45 -0.53c0.8,-0.93 1.62,-1.87 2.44,-2.82l-0.47 -0.16c26.43,-78.83 20.84,-169.24 18.14,-197.94 -29.06,6.17 -63.45,14.58 -92.65,24.81 0,0 -10.74,27.18 -8.73,47.66 2.01,20.47 10.4,39.6 17.79,47.99 7.38,8.39 -4.03,19.8 -14.1,11.08 -10.07,-8.73 -33.9,-27.86 -31.88,-85.58 0,0 -51.69,29.87 -54.37,96.99 -2.41,60.36 60.31,104.42 124.22,99.27 -29.57,40.64 -52.99,92.96 -71.11,145.44 -34.37,99.52 -49.74,199.84 -51.89,221.41 -1.69,16.94 -9.22,61.56 -18.01,108.82 -8.48,45.59 -18.12,93.5 -24.81,121.32 -13.86,57.6 -20.46,188.53 -20.47,188.9l11.37 0.54c0.02,-0.37 6.56,-130.3 20.16,-186.81 6.77,-28.15 16.45,-76.26 24.95,-121.9 8.84,-47.51 16.42,-92.5 18.15,-109.76 2.13,-21.29 17.32,-120.37 51.32,-218.82 17.84,-51.67 40.86,-103.1 69.86,-142.81 3.19,-7.16 11.12,-24.22 15.49,-29.83zm25.46 -30.01c1.38,-1.51 2.8,-3.04 4.25,-4.58l0.29 -0.31c0.84,-0.89 1.69,-1.8 2.55,-2.7l0.67 -0.7c2.7,-2.84 5.52,-5.73 8.45,-8.67l0.65 -0.65c0.97,-0.98 1.96,-1.96 2.96,-2.95l0.38 -0.38c3.13,-3.09 6.39,-6.23 9.77,-9.41l0.58 -0.54c4.62,-4.35 9.48,-8.77 14.57,-13.25l0.68 -0.6c3.78,-3.32 7.7,-6.68 11.74,-10.06l0.29 -0.24c5.54,-4.63 11.33,-9.29 17.36,-13.99l0.57 -0.44c6.07,-4.71 12.39,-9.44 18.97,-14.18l0.24 -0.17c4.93,-3.55 10.01,-7.1 15.23,-10.64l0.24 -0.16c4.13,-2.8 8.36,-5.6 12.68,-8.38 1.65,-4.78 23.49,-68.56 28.59,-99.33 -14.9,-0.31 -31.83,-0.37 -51.18,-0.15 0,0 -12.75,35.24 -9.73,54.03 3.02,18.79 9.73,34.9 -0.34,37.25 -10.07,2.35 -31.21,-20.47 -17.79,-89.27 0,0 -24.82,3.76 -57.81,10.6 2.58,27.06 8.08,112.25 -14.87,189.88zm130.78 -107.89l1.53 -0.95 0.35 -0.22c7.57,-4.71 15.41,-9.39 23.53,-14l0.16 -0.09c6.06,-3.44 12.27,-6.86 18.63,-10.22l0.29 -0.16c8.49,-4.49 17.26,-8.91 26.3,-13.23l0.6 -0.29c6.76,-3.22 13.68,-6.39 20.75,-9.5l0.12 -0.05c2.34,-1.03 4.7,-2.05 7.07,-3.06l0.5 -0.21c7,-2.98 14.15,-5.89 21.45,-8.74l1.17 -0.46c2.38,-0.92 4.78,-1.84 7.19,-2.75l0.09 -0.03c5.13,-1.93 10.34,-3.82 15.61,-5.68l0.07 -0.03c-2.61,-6.39 -11.96,-9.39 -26.62,-13.87 -18.07,-5.52 -44.02,-9.54 -92.15,-10.8 -4.31,26.52 -20.49,76.07 -26.62,94.33z"></path></g></svg>
   </div>
 </button>
-
 </a>
-<button onclick="startRain()">Start Flower Rain</button>
 
 <script>
-  function startRain() {
-    const numberOfFlowers = 50; // Adjust the number of flowers
-
-    for (let i = 0; i < numberOfFlowers; i++) {
-      createFlower();
-    }
-  }
-
-  function createFlower() {
-    const flowerImg = document.createElement("img");
-    flowerImg.src = "https://i.ibb.co/26k38LM/tiny-floral-bouquet-beige-small-flower-gentle-daisy-graphic-element-on-transparent-background-spring.png";
-    flowerImg.classList.add("flower");
-    flowerImg.style.left = `${Math.random() * window.innerWidth}px`; // Random horizontal position
-    flowerImg.style.animationDuration = `${Math.random() * 5 + 3}s`; // Random animation duration
-    document.body.appendChild(flowerImg);
-
-    // Remove the flower after it falls to the bottom
-    flowerImg.addEventListener("animationend", () => {
-      flowerImg.remove();
-    });
-  }
   function predictIris() {
     const sepal_length = parseFloat(document.getElementById('sepal_length').value);
     const sepal_width = parseFloat(document.getElementById('sepal_width').value);
