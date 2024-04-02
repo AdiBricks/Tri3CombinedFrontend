@@ -5,14 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Game Universe</title>
+    <div id="snow"></div>
+
     <style>
+        /* the snowing efect on the homepage. */
+	#snow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 1000;
+}
         /* global styles */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            background-color: #f9f9f9;
+            background-color: #666;
             transition: background-color 1s ease-in-out;
         }
 
@@ -76,7 +88,7 @@
         .featured-games {
             text-align: center;
             padding: 2em;
-            background-color: #eee;
+            background-color: #666;
         }
 
         .featured-game {
@@ -125,60 +137,12 @@
             color: #ffcc00;
         }
 
-        /* snowfall animation styling */
-        .snowfall {
-            pointer-events: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            animation: snowfallAnimation 10s linear;
-            z-index: 2;
-        }
-
-        .snowflake {
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            background-color: #00f; /* Blue dot */
-            border-radius: 50%;
-            animation-iteration-count: infinite;
-            animation-play-state: running;
-        }
-
-        @keyframes snowfallAnimation {
-            0% {
-                transform: translateY(0);
-            }
-
-            100% {
-                transform: translateY(100vh);
-            }
-        }
-
-        @keyframes snowflakeAnimation {
-            0%, 100% {
-                transform: translateY(0);
-            }
-
-            25% {
-                transform: translateY(10px) translateX(5px);
-            }
-
-            50% {
-                transform: translateY(20px) translateX(-5px);
-            }
-
-            75% {
-                transform: translateY(30px) translateX(5px);
-            }
-        }
+ 
 
         /* how to use this site styles */
         .additional-section {
             padding: 2em;
-            background-color: #eee;
+            background-color: #666;
             text-align: center;
         }
 
@@ -191,14 +155,14 @@
         .social-link {
             margin: 0 10px;
             font-size: 20px;
-            color: white;
+            color: 666;
             text-decoration: none;
         }
 
         .faq-section {
             padding: 2em;
             text-align: center;
-            background-color: #eee;
+            background-color: #666;
         }
 
         .faq-section details {
@@ -286,30 +250,6 @@
         </div>
     </div>
 
-    <!-- FAQ section -->
-    <div class="faq-section">
-        <h2>Frequently Asked Questions (FAQ)</h2>
-
-        <details>
-            <summary>Why should I create an account?</summary>
-            <p>Unlock access to special games! </p>
-        </details>
-
-        <details>
-            <summary>How do I find the coolest games?</summary>
-            <p> Check our Games section, and see what works best for you!</p>
-        </details>
-
-        <details>
-            <summary>What happens if I press the star button?</summary>
-            <p>A star is born! Just kidding lol the styling will change so you get some cool slide show colors instead!.</p>
-        </details>
-
-        <details>
-            <summary>Is the snowfall button make it christmas time?</summary>
-            <p>Unfortunately, no. It just makes it snow on our website. But that would be so cooooooool! get it? cool? ill shut up now</p>
-        </details>
-    </div>
 
     <!-- how to use this site section -->
     <div class="additional-section">
@@ -328,6 +268,71 @@
     </footer>
 
     <script>
+
+document.addEventListener('DOMContentLoaded', function(){
+    var script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js';
+    script.onload = function(){
+        particlesJS("snow", {
+            "particles": {
+                "number": {
+                    "value": 200,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "opacity": {
+                    "value": 0.7,
+                    "random": false,
+                    "anim": {
+                        "enable": false
+                    }
+                },
+                "size": {
+                    "value": 5,
+                    "random": true,
+                    "anim": {
+                        "enable": false
+                    }
+                },
+                "line_linked": {
+                    "enable": false
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 5,
+                    "direction": "bottom",
+                    "random": true,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": true,
+                        "rotateX": 300,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "events": {
+                    "onhover": {
+                        "enable": false
+                    },
+                    "onclick": {
+                        "enable": false
+                    },
+                    "resize": false
+                }
+            },
+            "retina_detect": true
+        });
+    }
+    document.head.append(script);
+});
         // Function to change background color
         function changeStyle() {
             document.body.style.backgroundColor = getRandomColor();
