@@ -8,65 +8,74 @@
         body {
             font-family: 'Arial', sans-serif;
             text-align: center;
-            margin: 20px;
+            margin: 0%;
         }
 
         header {
-            background-color: #333;
+            background: linear-gradient(135deg, #ff6c00, #ee0979);
             color: white;
             text-align: center;
-            padding: 1.5em;
+            padding: 5%;
             font-size: 2em;
+            animation: glow 2s infinite alternate;
+            animation-timing-function: ease-in-out;
+            box-shadow: 0 1% 1.5% rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes glow {
+            0% { text-shadow: 0 0 1% #fff, 0 0 2% #ff4d00, 0 0 3% #ff0500; }
+            50% { text-shadow: 0 0 2% #fff, 0 0 3% #ff4d00, 0 0 4% #ff0500; }
+            100% { text-shadow: 0 0 1% #fff, 0 0 2% #ff4d00, 0 0 3% #ff0500; }
         }
 
         #game-container {
-            max-width: 400px;
+            max-width: 40%;
             margin: auto;
-            padding: 20px;
+            padding: 2%;
             border: 2px solid #3498db;
-            border-radius: 10px;
+            border-radius: 2%;
         }
 
         #result {
-            margin-top: 20px;
-            font-size: 18px;
+            margin-top: 2%;
+            font-size: 2vw;
             font-weight: bold;
             color: #e74c3c;
         }
 
         #input-container {
-            margin-top: 20px;
+            margin-top: 2%;
         }
 
         #guess-input {
-            padding: 8px;
-            font-size: 16px;
-            margin-right: 10px;
+            padding: 1%;
+            font-size: 1.5vw;
+            margin-right: 2%;
         }
 
         #guess-button {
-            padding: 8px 15px;
-            font-size: 16px;
+            padding: 1% 2%;
+            font-size: 1.5vw;
             cursor: pointer;
             background-color: #2ecc71;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 1%;
         }
 
         nav {
             display: flex;
             justify-content: space-around;
             background-color: #444;
-            padding: 1em;
-            margin-bottom: 20px;
+            padding: 1%;
+            margin-bottom: 2%;
         }
 
         nav a {
             text-decoration: none;
             color: white;
             font-weight: bold;
-            font-size: 1em;
+            font-size: 1.5vw;
             transition: color 0.3s ease-in-out;
         }
 
@@ -80,12 +89,6 @@
     Your Game Universe
 </header>
 <nav>
-    <a href="http://127.0.0.1:5501/_posts/gameslist.html">GAMES</a>
-    <a href="http://127.0.0.1:5501/_posts/favorites.html">FAVORITE</a>
-    <a href="http://127.0.0.1:5501/_posts/ibio.html">BIO</a>
-    <a href="http://127.0.0.1:5501/_posts/2024-02-07-SLogin copy.html">LOGIN</a>
-    <a href="http://127.0.0.1:5501/_posts/2024-02-06-SignUp.html">SIGN UP</a>
-    <a href="http://127.0.0.1:5501/_posts/edit.html">UPDATE</a>
     <a href="http://127.0.0.1:5501/_posts/index.html">HOME</a>
 </nav>
 
