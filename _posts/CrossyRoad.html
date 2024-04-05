@@ -24,24 +24,17 @@
             box-shadow: 0 1% 1.5% rgba(0, 0, 0, 0.1);
             width: 100%;
             border-bottom: 3px solid gray;
-            z-index: 1; /* Ensure header appears above canvas */
         }
         #score {
-            position: absolute;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 2vw;
+            margin-top: 20px;
+            font-size: 24px;
             color: #FFF;
-            text-shadow: 0.5vw 0.5vw #000;
-            z-index: 1; /* Ensure score appears above canvas */
+            text-shadow: 2px 2px #000;
         }
         canvas {
             border: 5px solid #000;
             width: 80%;
             height: 75%;
-            position: relative; /* Ensure canvas appears below header and score */
-            z-index: 0; /* Ensure canvas appears below header and score */
         }
 
         @keyframes glow {
@@ -55,8 +48,8 @@
 <header>
     Crossy lol Road
 </header>
-<div id="score">Score: 0</div>
 <canvas id="gameCanvas"></canvas>
+<div id="score">Score: 0</div>
 <script src="CrossyRoad.js"></script>
 </body>
 </html>

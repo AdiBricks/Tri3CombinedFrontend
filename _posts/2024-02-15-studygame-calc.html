@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,6 +8,25 @@
         body {
             font-family: Arial, sans-serif;
             padding: 20px;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+        nav {
+            background-color: #444;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
         }
         .question, .add-question, .user-questions {
             margin-bottom: 20px;
@@ -18,6 +37,15 @@
     </style>
 </head>
 <body>
+
+<header>
+    <h1>AP Calculus Study Game</h1>
+</header>
+
+<nav>
+    <a href="#">Home</a>
+    <!-- Add more navigation links if needed -->
+</nav>
 
 <div id="game">
     <div class="question" id="question"></div>
@@ -93,8 +121,7 @@
         } else {
             document.getElementById("feedback").innerText = "Incorrect, try again!";
         }
-}
-
+    }
 
     window.onload = getRandomQuestion;
 </script>
