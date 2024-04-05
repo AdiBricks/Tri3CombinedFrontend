@@ -13,6 +13,17 @@
             height: 100vh;
             background: linear-gradient(to bottom, #87CEEB 0%, #87CEEB 50%, #8FBC8F 50%, #8FBC8F 100%);
         }
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 0.5em;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1em;
+        }
         header {
             background: linear-gradient(135deg, #ff6c00, #ee0979);
             color: white;
@@ -46,8 +57,11 @@
 </head>
 <body>
 <header>
-    Crossy lol Road
+    Media Player
 </header>
+<nav>
+    <a href="http://127.0.0.1:5502/_posts/testingindex.html">HOME</a>
+</nav>
 <canvas id="gameCanvas"></canvas>
 <div id="score">Score: 0</div>
 <script src="CrossyRoad.js"></script>
