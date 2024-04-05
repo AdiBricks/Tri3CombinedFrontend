@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -9,6 +10,32 @@
         margin: 0;
         overflow: hidden;
     }
+    header {
+        background: linear-gradient(135deg, #ff6c00, #ee0979);
+        color: white;
+        text-align: center;
+        padding: 2%;
+        font-size: 2em;
+        animation: glow 2s infinite alternate;
+        animation-timing-function: ease-in-out;
+        box-shadow: 0 1% 1.5% rgba(0, 0, 0, 0.1);
+        width: 100%;
+        border-bottom: 3px solid gray; /* Gray border at the bottom */
+    }
+
+    nav {
+        background-color: #444; /* Gray background for the navigation */
+        padding: 10px;
+        display: flex;
+        justify-content: center; /* Center items horizontally */
+    }
+
+    nav a {
+        color: #ffffff; /* White text color for navigation links */
+        text-decoration: none;
+        margin: 0 10px; /* Add margin between links */
+    }
+
     canvas {
         display: block;
         margin: 0 auto;
@@ -31,6 +58,14 @@
 </style>
 </head>
 <body>
+<header>
+    Your Game Universe
+</header>
+
+<nav>
+    <a href="http://127.0.0.1:5502/_posts/testingindex.html">HOME</a>
+</nav>
+
 <canvas id="gameCanvas" width="800" height="400"></canvas>
 <div id="endScreen">
     <div>Game Over!</div>
@@ -109,16 +144,16 @@
 
         // Draw character as car emoji
         ctx.font = '30px Arial';
-        ctx.fillText('🛸', character.x, character.y + character.height);
+        ctx.fillText('😎', character.x, character.y + character.height);
 
         // Draw obstacles as rock emojis
         obstacles.forEach(obstacle => {
-            ctx.fillText('🪨', obstacle.x, obstacle.y + obstacleWidth);
+            ctx.fillText('😔', obstacle.x, obstacle.y + obstacleWidth);
         });
 
         // Draw coins as money bag emojis for a yellowish color
         coins.forEach(coin => {
-            ctx.fillText('💰', coin.x, coin.y + coinSize);
+            ctx.fillText('😊', coin.x, coin.y + coinSize);
         });
 
         // Draw score
