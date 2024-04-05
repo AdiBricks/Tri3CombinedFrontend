@@ -1,22 +1,21 @@
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="CSS/home.css">
   <script src="https://kit.fontawesome.com/23cecef777.js" crossorigin="anonymous"></script>
   <title>Home</title>
-</head>
-<style>
+ </head>
+ <style>
   * {
   padding: 0;
   margin: 0;
-}
-body {
+ }
+ body {
   background-color: #121212;
   font-family: 'Montserrat', sans-serif;
-}
-
-.sidebar {
+ }
+ 
+ .sidebar {
   position: fixed;
   left: 0;
   top: 0;
@@ -24,118 +23,119 @@ body {
   width: 196px;
   background-color: #000000;
   padding: 24px;
-}
-.sidebar .logo img {
+ }
+ .sidebar .logo img {
   width: 130px;
-}
-.sidebar .navigation ul {
+ }
+ .sidebar .navigation ul {
   list-style: none;
   margin-top: 20px;
-}
-.sidebar .navigation ul li {
+ }
+ .sidebar .navigation ul li {
   padding: 10px 0px;
-}
-.sidebar .navigation ul li a {
+ }
+ .sidebar .navigation ul li a {
   color: #b3b3b3;
   text-decoration: none;
   font-weight: bold;
   font-size: 13px;
-}
-.sidebar .navigation ul li a:hover,
-.sidebar .navigation ul li a:active,
-.sidebar .navigation ul li a:focus {
+ }
+ .sidebar .navigation ul li a:hover,
+ .sidebar .navigation ul li a:active,
+ .sidebar .navigation ul li a:focus {
   color: #ffffff;
-}
-.sidebar .navigation ul li a:hover .fa,
-.sidebar .navigation ul li a:active .fa,
-.sidebar .navigation ul li a:focus .fa {
+ }
+ .sidebar .navigation ul li a:hover .fa,
+ .sidebar .navigation ul li a:active .fa,
+ .sidebar .navigation ul li a:focus .fa {
   color: #b3b3b3;
-}
-.sidebar .navigation ul li .fa {
+ }
+ .sidebar .navigation ul li .fa {
   font-size: 20px;
   margin-right: 10px;
-}
-.sidebar .navigation ul li a:hover .fa:hover,
-.sidebar .navigation ul li a:hover .fa:active,
-.sidebar .navigation ul li a:hover .fa:focus {
+ }
+ .sidebar .navigation ul li a:hover .fa:hover,
+ .sidebar .navigation ul li a:hover .fa:active,
+ .sidebar .navigation ul li a:hover .fa:focus {
   color: #ffffff;
-}
-.sidebar .policies {
+ }
+ .sidebar .policies {
   position: absolute;
   bottom: 100px;
-}
-.sidebar .policies ul {
+ }
+ .sidebar .policies ul {
   list-style: none;
-}
-.sidebar .policies ul li {
+ }
+ .sidebar .policies ul li {
   padding-bottom: 5px;
-}
-.sidebar .policies ul li a {
+ }
+ .sidebar .policies ul li a {
   color: #b3b3b3;
   font-weight: 500;
   text-decoration: none;
   font-size: 10px;
-}
-.sidebar .policies ul li a:hover,
-.sidebar .policies ul li a:active,
-.sidebar .policies ul li a:focus {
+ }
+ .sidebar .policies ul li a:hover,
+ .sidebar .policies ul li a:active,
+ .sidebar .policies ul li a:focus {
   text-decoration: underline;
-}
-
-.main-container {
+ }
+ 
+ .main-container {
   margin-left: 245px;
   margin-bottom: 100px;
-}
-
-.topbar {
+ }
+ 
+ .topbar {
   display: flex;
   justify-content: space-between;
   background-color: #101010;
   padding: 14px 30px;
-}
-.topbar .prev-next-buttons button {
+ }
+ .topbar .prev-next-buttons button {
   color: #7a7a7a;
   cursor: not-allowed;
   width: 34px;
   height: 34px;
   border-radius: 100%;
   font-size: 18px;
-  border: 0px;
+  border: 3px;
+  border-color: #fffefe;
   background-color: #090909;
   margin-right: 10px;
-}
-.topbar .navbar {
+ }
+ .topbar .navbar {
   display: flex;
   align-items: center;
-}
-.topbar .navbar ul {
+ }
+ .topbar .navbar ul {
   list-style: none;
-}
-.topbar .navbar ul li {
+ }
+ .topbar .navbar ul li {
   display: inline-block;
   margin: 0px 8px;
   width: 70px;
-}
-.topbar .navbar ul li a {
+ }
+ .topbar .navbar ul li a {
   color: #b3b3b3;
   text-decoration: none;
   font-weight: bold;
   font-size: 14px;
   letter-spacing: 1px;
-}
-.topbar .navbar ul li a:hover,
-.topbar .navbar ul li a:active,
-.topbar .navbar ul li a:focus {
+ }
+ .topbar .navbar ul li a:hover,
+ .topbar .navbar ul li a:active,
+ .topbar .navbar ul li a:focus {
   color: #ffffff;
   font-size: 15px;
-}
-.topbar .navbar ul li.divider {
+ }
+ .topbar .navbar ul li.divider {
   color: #ffffff;
   font-size: 26px;
   margin: 0px 20px;
   width: auto;
-}
-.topbar .navbar button {
+ }
+ .topbar .navbar button {
   background-color: #ffffff;
   color: #000000;
   font-size: 16px;
@@ -145,53 +145,64 @@ body {
   border-radius: 40px;
   cursor: pointer;
   margin-left: 20px;
-}
-.topbar .navbar button:hover,
-.topbar .navbar button:active,
-.topbar .navbar button:focus {
+ }
+ .topbar .navbar button:hover,
+ .topbar .navbar button:active,
+ .topbar .navbar button:focus {
   background-color: #f2f2f2;
-}
-
-.song-bar {
+ }
+ 
+ .song-bar {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 500px; /* Set the height to 188 pixels */
+  height: 68px; /* Set the height to 68 pixels */
   background-color: #000;
-  color: #fff;
   padding: 10px 20px;
   display: none 
-}
-
-.text-bar {
+ }
+ 
+ .text-bar {
   text-align: left;
-  font-size: 10px;
-}
-
-.image {
-  text-align: center  ;
-  width: auto; /* Adjust the width as needed */
-  height: auto; /* Maintain aspect ratio */
-}
-
-.spotify-playlists {
+  font-size: 20px;
+  margin-bottom: -49px;
+  margin-left: 100px;
+  font-weight: bold;
+  color: #53af72
+ }
+ 
+ .image {
+  text-align: left;
+ }
+ 
+ .fb {
+  position: absolute;
+  right: 100px;
+  top: 60px;
+  padding: 18px; /* padding is size */
+  background-color: #0ebe4c;
+  border-radius: 100%;
+  opacity: 1;
+ }
+ 
+ .spotify-playlists {
   padding: 20px 40px;
-}
-.spotify-playlists h2 {
+ }
+ .spotify-playlists h2 {
   color: #ffffff;
   font-size: 22px;
   margin-bottom: 20px;
-}
-.spotify-playlists .list {
+ }
+ .spotify-playlists .list {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: flex-start;
   padding-left: 5px; /* Add padding to the entire list */
-}
-
-.spotify-playlists .list .item {
+ }
+ 
+ .spotify-playlists .list .item {
   min-width: 140px;
   width: 160px;
   padding: 15px;
@@ -199,65 +210,69 @@ body {
   border-radius: 6px;
   cursor: pointer;
   transition: all ease 0.4s;
-}
-
-/* Reset padding for items in the second and subsequent rows */
-.spotify-playlists .list br + .item {
+ }
+ 
+ /* Reset padding for items in the second and subsequent rows */
+ .spotify-playlists .list br + .item {
   padding-left: 0;
-}
-
-
-
-.spotify-playlists .list .item:not(:first-child) {
+ }
+ 
+ 
+ 
+ .spotify-playlists .list .item:not(:first-child) {
   margin-left: 20px; /* Add left margin to all items except the first item */
-}
-
-
-.spotify-playlists .list .item:hover {
+ }
+ 
+ 
+ .spotify-playlists .list .item:hover {
   background-color: #252525;
-}
-.spotify-playlists .list .item img {
+ }
+ .spotify-playlists .list .item img {
   width: 100%;
   border-radius: 6px;
   margin-bottom: 10px;
-}
-.spotify-playlists .list .item .play {
+ }
+ .spotify-playlists .list .item .play {
   position: relative;
-}
-.spotify-playlists .list .item .play .fa {
+ }
+ .spotify-playlists .list .item .play .fa {
   position: absolute;
   right: 10px;
   top: -60px;
   padding: 18px;
-  background-color: #1db954;
+  background-color: #0ebe4c;
   border-radius: 100%;
   opacity: 0;
   transition: all ease 0.4s;
-}
-.spotify-playlists .list .item:hover .play .fa {
+ }
+ 
+ .spotify-playlists .list .item:hover .play .fa {
   opacity: 1;
   transform: translateY(-20px);
-}
-.spotify-playlists .list .item h4 {
+ }
+ 
+ 
+ 
+ .spotify-playlists .list .item h4 {
   color: #ffffff;
   font-size: 14px;
   margin-bottom: 10px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-.spotify-playlists .list .item p {
+ }
+ .spotify-playlists .list .item p {
   color: #989898;
   font-size: 12px;
   line-height: 20px;
   font-weight: 600;
-}
-.spotify-playlists hr {
+ }
+ .spotify-playlists hr {
   margin: 70px 0px 0px;
   border-color: #636363;
-}
-
-.preview {
+ }
+ 
+ .preview {
   position: fixed;
   bottom: 0;
   left: 0;
@@ -266,20 +281,20 @@ body {
   padding: 15px 40px;
   display: flex;
   justify-content: space-between;
-}
-.preview h6 {
+ }
+ .preview h6 {
   color: #ffffff;
   text-transform: uppercase;
   font-weight: 400;
   font-size: 12px;
   margin-bottom: 10px;
-}
-.preview p {
+ }
+ .preview p {
   color: #ffffff;
   font-size: 14px;
   font-weight: 500;
-}
-.preview button {
+ }
+ .preview button {
   background-color: #ffffff;
   color: #000000;
   font-size: 16px;
@@ -288,235 +303,242 @@ body {
   border: 0px;
   border-radius: 40px;
   cursor: pointer;
-}
-.spotify-playlists .list {
-          display: grid;
-          grid-template-columns: repeat(7, 1fr);
-          gap: 20px;
-          overflow-x: auto; /* Enable horizontal scrolling */
-          white-space: nowrap; /* Prevent items from wrapping to the next line */
-      }
-
-</style>
-<body>
+ }
+ .spotify-playlists .list {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 20px;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  white-space: nowrap; /* Prevent items from wrapping to the next line */
+  }
+ 
+ </style>
+ <body>
   <div class="sidebar">
-    <div class="logo">
-      <a href="#">
-        <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Green.png" alt="Logo" />
-      </a>
-    </div>
-
-    <div class="navigation">
-      <ul>
-        <li>
-          <a href="/_posts/testingindex.html">
-            <span class="fa fa-home"></span>
-            <span>Home</span>
-          </a>
-        </li>
-
-        <li>
-          <a href="#">
-            <span class="fa fa-search"></span>
-            <span>Search</span>
-          </a>
-        </li>
-
-        <li>
-          <a href="#">
-            <span class="fa fas fa-book"></span>
-            <span>Your Library</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-
-    <div class="navigation">
-      <ul>
-        <li>
-          <a href="create.html">
-            <span class="fa fas fa-plus-square"></span>
-            <span>Create</span>
-          </a>
-        </li>
-
-        <li>
-          <a href="#">
-            <span class="fa fas fa-heart"></span>
-            <span>Liked Songs</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-
-    <div class="policies">
-      <ul>
-        <li>
-          <a href="#">Cookies</a>
-        </li>
-        <li>
-          <a href="#">Privacy</a>
-        </li>
-      </ul> 
-    </div>
+  <div class="logo">
+  <a href="#">
+  <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Green.png" alt="Logo" />
+  </a>
   </div>
-
+ 
+  <div class="navigation">
+  <ul>
+  <li>
+  <a href="/_posts/testingindex.html">
+  <span class="fa fa-home"></span>
+  <span>Home</span>
+  </a>
+  </li>
+ 
+  <li>
+  <a href="#">
+  <span class="fa fa-search"></span>
+  <span>Search</span>
+  </a>
+  </li>
+ 
+  <li>
+  <a href="#">
+  <span class="fa fas fa-book"></span>
+  <span>Your Library</span>
+  </a>
+  </li>
+  </ul>
+  </div>
+ 
+  <div class="navigation">
+  <ul>
+  <li>
+  <a href="create.html">
+  <span class="fa fas fa-plus-square"></span>
+  <span>Create</span>
+  </a>
+  </li>
+ 
+  <li>
+  <a href="#">
+  <span class="fa fas fa-heart"></span>
+  <span>Liked Songs</span>
+  </a>
+  </li>
+  </ul>
+  </div>
+ 
+  <div class="policies">
+  <ul>
+  <li>
+  <a href="#">Cookies</a>
+  </li>
+  <li>
+  <a href="#">Privacy</a>
+  </li>
+  </ul> 
+  </div>
+  </div>
+ 
   <div class="main-container">
-    <div class="topbar">
-      <div class="prev-next-buttons">
-        <button type="button" class="fa fas fa-chevron-left"></button>
-        <button type="button" class="fa fas fa-chevron-right"></button>
-      </div>
-
-      <div class="navbar">
-        <ul>
-          <li>
-            <a href="#">Premium</a>
-          </li>
-          <li>
-            <a href="#">Support</a>
-          </li>
-          <li>
-            <a href="#">Download</a>
-          </li>
-          <li class="divider">|</li>
-        </ul>
-        <button type="button" id="loginButton">
-          <a href="/_layouts/login.html">Log In</a>
-      </button>
-      </div>
-    </div>
-
-    <div class="song-bar" id="songBar">
-      <div class="text-bar">
-        <p id="currentSongName"></p>
-        <p id="currentArtistName"></p>
-      </div>
-      
-      <div class="image">
-        <img src="" alt="Album Cover" id="albumCoverImage">
-      </div>
-      
-      
+  <div class="topbar">
+  <div class="prev-next-buttons">
+  <button type="button" class="fa fas fa-chevron-left"></button>
+  <button type="button" class="fa fas fa-chevron-right"></button>
   </div>
-
-    <div class="spotify-playlists">
-      <h2>Spotify Playlists</h2>
-      <div class="list" id="albumList" onclick=>
-
-      </div>
-
-
-      <script>
-
-        function createItemBlock(data) {
-          const item = document.createElement("div");
-          item.classList.add("item");
-      
-          // Assuming your data structure has changed
-          const img = document.createElement("img");
-          img.src = data._uri; // Update this to match your actual URI field
-          item.appendChild(img);
-      
-          const play = document.createElement("div");
-          play.classList.add("play");
-          const playIcon = document.createElement("span");
-          playIcon.classList.add("fa", "fa-play");
+ 
+  <div class="navbar">
+  <ul>
+  <li>
+  <a href="#">Premium</a>
+  </li>
+  <li>
+  <a href="#">Support</a>
+  </li>
+  <li>
+  <a href="#">Download</a>
+  </li>
+  <li class="divider">|</li>
+  </ul>
+  <button type="button" id="loginButton">
+  <a href="/_layouts/login.html">Log In</a>
+  </button>
+  </div>
+  </div>
+ 
+  <div class="song-bar" id="songBar">
+  <div class="text-bar">
+  <p id="currentSongName"></p>
+  <p id="currentArtistName"></p>
+  </div>
   
-          let isPlaying = false;
-          let audioPlayer;
-      
-          playIcon.addEventListener("click", () => {
-            console.log(data._uri)
-              if (!isPlaying) {
-                  audioPlayer = new Audio(data.url);
-                  audioPlayer.play();
-                  isPlaying = true;
-                  playIcon.classList.remove("fa-play");
-                  playIcon.classList.add("fa-pause");
-                  document.getElementById("currentSongName").textContent = data._name; // Update current song name
-                  document.getElementById("currentArtistName").textContent = data._description;
-                  document.getElementById("albumCoverImage").src = data._uri;
-                  document.getElementById("songBar").style.display = "block"; // Show song bar
-              } else {
-                  audioPlayer.pause();
-                  isPlaying = false;
-                  playIcon.classList.remove("fa-pause");
-                  playIcon.classList.add("fa-play");
-                  document.getElementById("currentSongName").textContent = ""; // Clear current song name
-                  document.getElementById("currentArtistName").textContent = ""; // Clear current artist name
-                  document.getElementById("albumCoverImage").src = "";
-                  document.getElementById("songBar").style.display = "none"; // Hide song bar
-              }
-          });
-          play.appendChild(playIcon);
-          item.appendChild(play);
-      
-          // Set the song name in the dataset
-          item.dataset.songName = data._name;
-          // Set the song URL in the dataset
-          item.dataset.songUrl = data.url;
-      
-          const h4 = document.createElement("h4");
-          h4.textContent = data._name; // Update this to match your actual name field
-          item.appendChild(h4);
-      
-          const p = document.createElement("p");
-          p.textContent = data._description; // Update this to match your actual tokens field
-          item.appendChild(p);
-      
-          return item;
-        }
-      
-        // Fetch data from Flask backend
-        async function fetchData() {
-          try {
-            const response = await fetch('http://127.0.0.1:8086/api/song/all');
-            const songsData = await response.json();
-      
-            const container = document.getElementById("albumList");
-      
-            // Map through the list and create song cards
-            songsData.forEach((song) => {
-              const itemBlock = createItemBlock(song);
-              container.appendChild(itemBlock);
-            });
-          } catch (error) {
-            console.error('Error fetching data:', error);
-          }
-        }
-
-        let loggedIn = sessionStorage.getItem("loggedIn") || "0";
-
-        // Function to toggle the display of the login button
-        function toggleLoginButton() {
-            const loginButton = document.getElementById("loginButton");
-            loginButton.style.display = loggedIn === "1" ? "none" : "block";
-        }
-        // Call the function on page load to set the initial state
-                
-        // Load data when the page is loaded
-        window.onload = function () {
-          toggleLoginButton();
-          fetchData();
-          document.getElementById("albumList").addEventListener("click", redirectToSongPageContainer);
-        };
-
-      function redirectToSongPage(songName, songUrl, songDescription, data) { //THIS IS THE FUNCTIOANSDIJAISJDOIAJSDIO
-          // Store the song name and URL in sessionStorage
-          sessionStorage.setItem('currentSongName', songName);
-          sessionStorage.setItem('currentSongUrl', songUrl);
-          sessionStorage.setItem('currentSongDescription', songDescription);
-      
-          console.log(songName)
-          console.log(songDescription)
-          // Log the data to the console
-          // Redirect to the song.html page
-          window.location.href = 'song.html';
-        }
-      
-
-      </script>
-      
+  <div class="image">
+  <img src="" alt="Album Cover" id="albumCoverImage" style="height: 200px;">
+  </div>
+ 
+  <button type="button" class="fa-play"></button>
+  
+  </div>
+ 
+  <div class="spotify-playlists">
+  <h2>Spotify Playlists</h2>
+  <div class="list" id="albumList" onclick=>
+ 
+  </div>
+ 
+ 
+  <script>
+ 
+  function createItemBlock(data) {
+  const item = document.createElement("div");
+  item.classList.add("item");
+  
+  // Assuming your data structure has changed
+  const img = document.createElement("img");
+  img.src = data._uri; // Update this to match your actual URI field
+  item.appendChild(img);
+  
+  const play = document.createElement("div");
+  play.classList.add("play");
+  const playIcon = document.createElement("span");
+  playIcon.classList.add("fa", "fa-play");
+  
+  
+  let isPlaying = false;
+  let audioPlayer;
+  
+  playIcon.addEventListener("click", () => {
+  console.log(data._uri)
+  if (!isPlaying) {
+  audioPlayer = new Audio(data.url);
+  audioPlayer.play();
+  isPlaying = true;
+  playIcon.classList.remove("fa-play");
+  playIcon.classList.add("fa-pause");
+  document.getElementById("currentSongName").textContent = data._name; // Update current song name
+  document.getElementById("currentArtistName").textContent = data._description;
+  document.getElementById("albumCoverImage").src = data._uri;
+  document.getElementById("albumCoverImage").style.height = "75";
+  document.getElementById("albumCoverImage").style.width = "75";
+  document.getElementById("songBar").style.display = "block"; // Show song bar
     
-</body>
+  
+  } else {
+  audioPlayer.pause();
+  isPlaying = false;
+  playIcon.classList.remove("fa-pause");
+  playIcon.classList.add("fa-play");
+  document.getElementById("currentSongName").textContent = ""; // Clear current song name
+  document.getElementById("currentArtistName").textContent = ""; // Clear current artist name
+  document.getElementById("albumCoverImage").src = "";
+  document.getElementById("albumCoverImage").style.height = "200px";
+  document.getElementById("songBar").style.display = "none"; // Hide song bar
+  }
+  });
+  play.appendChild(playIcon);
+  item.appendChild(play);
+  
+  // Set the song name in the dataset
+  item.dataset.songName = data._name;
+  // Set the song URL in the dataset
+  item.dataset.songUrl = data.url;
+  
+  const h4 = document.createElement("h4");
+  h4.textContent = data._name; // Update this to match your actual name field
+  item.appendChild(h4);
+  
+  const p = document.createElement("p");
+  p.textContent = data._description; // Update this to match your actual tokens field
+  item.appendChild(p);
+  
+  return item;
+  }
+  
+  // Fetch data from Flask backend
+  async function fetchData() {
+  try {
+  const response = await fetch('http://127.0.0.1:8086/api/song/all');
+  const songsData = await response.json();
+  
+  const container = document.getElementById("albumList");
+  
+  // Map through the list and create song cards
+  songsData.forEach((song) => {
+  const itemBlock = createItemBlock(song);
+  container.appendChild(itemBlock);
+  });
+  } catch (error) {
+  console.error('Error fetching data:', error);
+  }
+  }
+ 
+  let loggedIn = sessionStorage.getItem("loggedIn") || "0";
+ 
+  // Function to toggle the display of the login button
+  function toggleLoginButton() {
+  const loginButton = document.getElementById("loginButton");
+  loginButton.style.display = loggedIn === "1" ? "none" : "block";
+  }
+  // Call the function on page load to set the initial state
+  
+  // Load data when the page is loaded
+  window.onload = function () {
+  toggleLoginButton();
+  fetchData();
+  document.getElementById("albumList").addEventListener("click", redirectToSongPageContainer);
+  };
+ 
+  function redirectToSongPage(songName, songUrl, songDescription, data) { //THIS IS THE FUNCTIOANSDIJAISJDOIAJSDIO
+  // Store the song name and URL in sessionStorage
+  sessionStorage.setItem('currentSongName', songName);
+  sessionStorage.setItem('currentSongUrl', songUrl);
+  sessionStorage.setItem('currentSongDescription', songDescription);
+  
+  console.log(songName)
+  console.log(songDescription)
+  // Log the data to the console
+  // Redirect to the song.html page
+  window.location.href = 'song.html';
+  }
+  
+ 
+  </script>
+  
+  
+ </body>
