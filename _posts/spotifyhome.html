@@ -157,12 +157,23 @@ body {
   bottom: 0;
   left: 0;
   width: 100%;
+  height: 500px; /* Set the height to 188 pixels */
   background-color: #000;
   color: #fff;
   padding: 10px 20px;
+  display: none 
+}
+
+.text-bar {
+  text-align: left;
+  font-size: 10px;
+}
+
+.image {
   text-align: center;
-  font-size: 100px;
-  display: none; /* Initially hidden */
+  width: auto; /* Adjust the width as needed */
+  height: 40px; /* Maintain aspect ratio */
+
 }
 
 
@@ -380,8 +391,17 @@ body {
     </div>
 
     <div class="song-bar" id="songBar">
-      <p id="currentSongName"></p>
-      <p id="currentArtistName"></p>
+      <div class="text-bar">
+        <p id="currentSongName"></p>
+        <p id="currentArtistName"></p>
+      </div>
+      
+      
+      <div class="image">
+        <img src="" alt="Album Cover" id="albumCoverImage">
+      </div>
+      
+      
   </div>
 
     <div class="spotify-playlists">
@@ -411,6 +431,7 @@ body {
           let audioPlayer;
       
           playIcon.addEventListener("click", () => {
+            console.log(data._uri)
               if (!isPlaying) {
                   audioPlayer = new Audio(data.url);
                   audioPlayer.play();
@@ -418,14 +439,18 @@ body {
                   playIcon.classList.remove("fa-play");
                   playIcon.classList.add("fa-pause");
                   document.getElementById("currentSongName").textContent = data._name; // Update current song name
-                  document.querySelector(".song-bar").style.display = "block"; // Show song bar
+                  document.getElementById("currentArtistName").textContent = data._description;
+                  document.getElementById("albumCoverImage").src = data._uri;
+                  document.getElementById("songBar").style.display = "block"; // Show song bar
               } else {
                   audioPlayer.pause();
                   isPlaying = false;
                   playIcon.classList.remove("fa-pause");
                   playIcon.classList.add("fa-play");
                   document.getElementById("currentSongName").textContent = ""; // Clear current song name
-                  document.querySelector(".song-bar").style.display = "none"; // Hide song bar
+                  document.getElementById("currentArtistName").textContent = ""; // Clear current artist name
+                  document.getElementById("albumCoverImage").src = "";
+                  document.getElementById("songBar").style.display = "none"; // Hide song bar
               }
           });
           play.appendChild(playIcon);
