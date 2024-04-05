@@ -6,7 +6,7 @@
   <title>Your Game Universe</title>
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: sans-serif;
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -14,11 +14,20 @@
     }
 
     header {
-      background-color: #333;
+      background: linear-gradient(135deg, #ff6c00, #ee0979);
       color: white;
       text-align: center;
-      padding: 1.5em;
+      padding: 5%;
       font-size: 2em;
+      animation: glow 2s infinite alternate;
+      animation-timing-function: ease-in-out;
+      box-shadow: 0 1% 1.5% rgba(0, 0, 0, 0.1);
+    }
+
+    @keyframes glow {
+      0% { text-shadow: 0 0 1% #fff, 0 0 2% #ff4d00, 0 0 3% #ff0500; }
+      50% { text-shadow: 0 0 2% #fff, 0 0 3% #ff4d00, 0 0 4% #ff0500; }
+      100% { text-shadow: 0 0 1% #fff, 0 0 2% #ff4d00, 0 0 3% #ff0500; }
     }
 
     nav {
@@ -55,7 +64,7 @@
     <a href="http://127.0.0.1:5500/_posts/2024-02-07-SLogin copy.html">LOGIN</a>
     <a href="http://127.0.0.1:5500/_posts/2024-02-06-SignUp.html">SIGN UP</a>
     <a href="http://127.0.0.1:5500/_posts/edit.html">UPDATE</a>
-</nav>
+  </nav>
 
   <canvas id="c" width="640" height="480" style="background:#000"></canvas>
 

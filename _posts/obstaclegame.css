@@ -1,0 +1,71 @@
+body {
+    background-color: #fff;
+    margin: 0;
+    overflow: hidden;
+    text-align: center;
+}
+header {
+    background: linear-gradient(135deg, #ff6c00, #ee0979);
+    color: white;
+    text-align: center;
+    padding: 5%;
+    font-size: 2em;
+    animation: glow 2s infinite alternate;
+    animation-timing-function: ease-in-out;
+    box-shadow: 0 1% 1.5% rgba(0, 0, 0, 0.1);
+}
+
+@keyframes glow {
+    0% { text-shadow: 0 0 1% #fff, 0 0 2% #ff4d00, 0 0 3% #ff0500; }
+    50% { text-shadow: 0 0 2% #fff, 0 0 3% #ff4d00, 0 0 4% #ff0500; }
+    100% { text-shadow: 0 0 1% #fff, 0 0 2% #ff4d00, 0 0 3% #ff0500; }
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: #444;
+    padding: 1em;
+    width: 100%;
+}
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5vw;
+    transition: color 0.3s ease-in-out;
+}
+#maze {
+    display: grid;
+    grid-template-columns: repeat(20, 30px);
+    grid-template-rows: repeat(20, 30px);
+    gap: 1px;
+    background-color: #000;
+    margin: 20px auto;
+}
+
+.cell {
+    width: 30px;
+    height: 30px;
+    box-sizing: border-box;
+    border: 1px solid #fff;
+}
+
+#start {
+    background-color: #00ff00;
+}
+
+#end {
+    background-color: #ff0000;
+}
+
+#player {
+    background-color: #0000ff;
+}
+
+#message {
+    text-align: center;
+    color: #000;
+    font-size: 24px;
+    margin-top: 20px;
+}
