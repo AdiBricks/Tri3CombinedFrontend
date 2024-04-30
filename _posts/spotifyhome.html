@@ -438,68 +438,67 @@
   <script>
  
   function createItemBlock(data) {
-  const item = document.createElement("div");
-  item.classList.add("item");
+    const item = document.createElement("div");
+    item.classList.add("item");
   
-  // Assuming your data structure has changed
-  const img = document.createElement("img");
-  img.src = data._uri; // Update this to match your actual URI field
-  item.appendChild(img);
+    // Assuming your data structure has changed
+    const img = document.createElement("img");
+    img.src = data._uri; // Update this to match your actual URI field
+    item.appendChild(img);
   
-  const play = document.createElement("div");
-  play.classList.add("play");
-  const playIcon = document.createElement("span");
-  playIcon.classList.add("fa", "fa-play");
+    const play = document.createElement("div");
+    play.classList.add("play");
+    const playIcon = document.createElement("span");
+    playIcon.classList.add("fa", "fa-play");
   
   
-  let isPlaying = false;
-  let audioPlayer;
+    let isPlaying = false;
+    let audioPlayer;
   
-  playIcon.addEventListener("click", () => {
-  console.log(data._uri)
-  if (!isPlaying) {
-  audioPlayer = new Audio(data.url);
-  audioPlayer.play();
-  isPlaying = true;
-  playIcon.classList.remove("fa-play");
-  playIcon.classList.add("fa-pause");
-  document.getElementById("currentSongName").textContent = data._name; // Update current song name
-  document.getElementById("currentArtistName").textContent = data._description;
-  document.getElementById("albumCoverImage").src = data._uri;
-  document.getElementById("albumCoverImage").style.height = "75";
-  document.getElementById("albumCoverImage").style.width = "75";
-  document.getElementById("songBar").style.display = "block"; // Show song bar
-
-  
-  } else {
-  audioPlayer.pause();
-  isPlaying = false;
-  playIcon.classList.remove("fa-pause");
-  playIcon.classList.add("fa-play");
-  document.getElementById("currentSongName").textContent = ""; // Clear current song name
-  document.getElementById("currentArtistName").textContent = ""; // Clear current artist name
-  document.getElementById("albumCoverImage").src = "";
-  document.getElementById("albumCoverImage").style.height = "200px";
-  document.getElementById("songBar").style.display = "none"; // Hide song bar
-  }
+    playIcon.addEventListener("click", () => {
+      console.log(data._uri)
+      if (!isPlaying) {
+        audioPlayer = new Audio(data.url);
+        audioPlayer.play();
+        isPlaying = true;
+        playIcon.classList.remove("fa-play");
+        playIcon.classList.add("fa-pause");
+        document.getElementById("currentSongName").textContent = data._name; // Update current song name
+        document.getElementById("currentArtistName").textContent = data._description;
+        document.getElementById("albumCoverImage").src = data._uri;
+        document.getElementById("albumCoverImage").style.height = "75";
+        document.getElementById("albumCoverImage").style.width = "75";
+        document.getElementById("songBar").style.display = "block"; // Show song bar
+      }
+     else {
+      audioPlayer.pause();
+      isPlaying = false;
+      playIcon.classList.remove("fa-pause");
+      playIcon.classList.add("fa-play");
+      document.getElementById("currentSongName").textContent = ""; // Clear current song name
+      document.getElementById("currentArtistName").textContent = ""; // Clear current artist name
+      document.getElementById("albumCoverImage").src = "";
+      document.getElementById("albumCoverImage").style.height = "200px";
+      document.getElementById("songBar").style.display = "none"; // Hide song bar
+    }
   });
-  play.appendChild(playIcon);
-  item.appendChild(play);
+    play.appendChild(playIcon);
+    item.appendChild(play);
   
-  // Set the song name in the dataset
-  item.dataset.songName = data._name;
-  // Set the song URL in the dataset
-  item.dataset.songUrl = data.url;
+    // Set the song name in the dataset
+    item.dataset.songName = data._name;
+    // Set the song URL in the dataset
+    item.dataset.songUrl = data.url;
   
-  const h4 = document.createElement("h4");
-  h4.textContent = data._name; // Update this to match your actual name field
-  item.appendChild(h4);
+    const h4 = document.createElement("h4");
+    h4.textContent = data._name; // Update this to match your actual name field
+    item.appendChild(h4);
   
-  const p = document.createElement("p");
-  p.textContent = data._description; // Update this to match your actual tokens field
-  item.appendChild(p);
+    const p = document.createElement("p");
+    p.textContent = data._description; // Update this to match your actual tokens field
+    item.appendChild(p);
   
-  return item;
+    return item;
   }
   
   // Fetch data from Flask backend
