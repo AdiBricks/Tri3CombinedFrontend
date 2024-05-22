@@ -67,12 +67,11 @@
             }
 
             // Fetch class list from backend
-            fetch('https://example.com/api/classes', { // Replace with your backend URL
-                method: 'POST',
+            fetch('/api/classes', { // Replace with your backend endpoint
+                method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ userId: '12345' }) // Replace with necessary request payload
+                }
             })
             .then(response => response.json())
             .then(data => {
