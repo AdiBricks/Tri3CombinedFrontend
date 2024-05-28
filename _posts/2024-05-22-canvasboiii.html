@@ -11,13 +11,9 @@
             margin: 0;
             padding: 20px;
         }
-        .dashboard {
+        .container {
             max-width: 1200px;
             margin: auto;
-        }
-        h1 {
-            font-size: 2rem;
-            margin-bottom: 20px;
         }
         .class-container {
             display: grid;
@@ -41,46 +37,71 @@
             color: #333;
             font-size: 1.2rem;
         }
+        .search-bar {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .search-bar input {
+            padding: 10px;
+            font-size: 1rem;
+            width: 300px;
+            margin-right: 10px;
+        }
+        .search-bar button {
+            padding: 10px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
-    <div class="dashboard">
-        <h1>Dashboard</h1>
+    <div class="container">
+        <div class="search-bar">
+            <input type="text" id="username" placeholder="Enter username">
+            <button onclick="searchUser()">Search</button>
+        </div>
         <div id="class-container" class="class-container"></div>
+        <div id="search-container" class="class-container"></div>
     </div>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const classContainer = document.getElementById('class-container');
+        function searchUser() {
+            const username = document.getElementById('username').value;
+            fetch(`http://127.0.0.1:8080/api/get_user_classes?username=${username}`)
+                .then(response => response.json())
+                .then(data => {
+                    const classContainer = document.getElementById('class-container');
+                    classContainer.innerHTML = '';
+                    if (data.error) {
+                        classContainer.innerHTML = `<p>${data.error}</p>`;
+                    } else {
+                        data.classes.forEach(className => {
+                            const classBox = document.createElement('div');
+                            classBox.classList.add('class-box');
+                            classBox.innerHTML = `<h3>${className}</h3>`;
+                            classContainer.appendChild(classBox);
+                        });
+                    }
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        }
 
-            // Function to create class boxes
-            function createClassBoxes(classList) {
-                classList.forEach(className => {
-                    const classBox = document.createElement('div');
-                    classBox.classList.add('class-box');
-
-                    const classTitle = document.createElement('h3');
-                    classTitle.textContent = className;
-
-                    classBox.appendChild(classTitle);
-                    classContainer.appendChild(classBox);
-                });
-            }
-
-            // Fetch class list from backend
-            fetch('/api/classes', { // Replace with your backend endpoint
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-            .then(response => response.json())
-            .then(data => {
-                createClassBoxes(data.classes);
-            })
-            .catch(error => {
-                console.error('Error fetching class list:', error);
-            });
-        });
+        function searchUserClasses() {
+            const searchTerm = document.getElementById('searchTerm').value;
+            fetch(`http://127.0.0.1:8080/api/search_user_classes?search=${searchTerm}`)
+                .then(response => response.json())
+                .then(data => {
+                    const searchContainer = document.getElementById('search-container');
+                    searchContainer.innerHTML = '';
+                    data.forEach(user => {
+                        const userBox = document.createElement('div');
+                        userBox.classList.add('class-box');
+                        userBox.innerHTML = `<h3>${user.username}</h3><p>${user.classes.join(', ')}</p>`;
+                        searchContainer.appendChild(userBox);
+                    });
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        }
     </script>
 </body>
 </html>
