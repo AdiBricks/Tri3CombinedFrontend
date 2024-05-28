@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #19161c;
+            height: 100vh;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-direction: column;
+            align-content: center;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+        .class-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .class-box {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .class-box h3 {
+            margin: 0;
+            color: #333;
+            font-size: 1.2rem;
+        }
+        .class-box img {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+        .search-bar {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .box {
+            position: relative;
+        }
+        .input {
+            padding: 10px;
+            width: 80px;
+            height: 80px;
+            background: none;
+            border: 4px solid #ffd52d;
+            border-radius: 50px;
+            box-sizing: border-box;
+            font-family: Comic Sans MS;
+            font-size: 26px;
+            color: #ffd52d;
+            outline: none;
+            transition: .5s;
+        }
+        .box:hover input {
+            width: 350px;
+            background: #3b3640;
+            border-radius: 10px;
+        }
+        .box i {
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            transform: translate(-50%, -50%);
+            font-size: 26px;
+            color: #ffd52d;
+            transition: .2s;
+            cursor: pointer;
+        }
+        .box:hover i {
+            opacity: 0;
+            z-index: -1;
+        }
+        #ytb {
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            line-height: 52px;
+            border: 2px solid transparent;
+            color: #ff1717;
+            font-size: 25px;
+            transition: 0.3s;
+        }
+        #ytb:hover {
+            border-radius: 50%;
+            border-color: #ff1717;
+            box-shadow: 0 0 10px #ff4040;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="search-bar">
+            <div class="box">
+                <form name="search" onsubmit="event.preventDefault(); searchUser();">
+                    <input type="text" class="input" id="username" name="txt">
+                </form>
+                <i class="fas fa-search" onclick="searchUser()"></i>
+            </div>
+            <a href="https://www.youtube.com/c/ShortCode" target="_blank" id="ytb">
+                <i class="fab fa-youtube"></i>
+            </a>
+        </div>
+        <div id="class-container" class="class-container"></div>
+        <div id="search-container" class="class-container"></div>
+    </div>
+    <script>
+        const classImages = {
+            'AP Calculus AB': 'https://c8.alamy.com/comp/AKRJFT/calculus-on-blackboard-AKRJFT.jpg',
+            'AP World History': 'https://cdn.kastatic.org/ka-perseus-images/47f52a5dc49bebe11a052215a6f4486a69007e6d.jpg',
+            'Physics 1': 'https://t3.ftcdn.net/jpg/01/97/49/40/360_F_197494079_U9dM6IxEBzdUmrhe3DFxyi8L0aFGtQME.jpg',
+            'AP Calculus BC': 'https://upload.wikimedia.org/wikipedia/commons/8/89/Pure-mathematics-formul%C3%A6-blackboard.jpg',
+            'World History': 'https://history.ufl.edu/wp-content/uploads/sites/113/2013/11/world-history-banner1.jpg',
+            'Honors Humanities': 'https://t3.ftcdn.net/jpg/03/70/42/66/360_F_370426690_Pejt9KxjWTHPklsKwripaxr0iA17zupF.jpg',
+            'English 3': 'https://t4.ftcdn.net/jpg/04/53/06/89/360_F_453068993_bepEf39VF9h7wxpZnI6NqgxWR27dGEE7.jpg',
+            'Biology': 'https://t4.ftcdn.net/jpg/03/34/15/27/360_F_334152743_WHNyumilcxfn1fVUfL7H0rioJImfxe5K.jpg',
+            'Chemistry': 'https://t3.ftcdn.net/jpg/02/26/56/66/360_F_226566691_8al76r2vhM5nUPvde2oAXUHpFFpCCbVA.jpg',
+            'AP US History': 'https://cdn.britannica.com/94/159994-131-8E828D22/Battle-of-New-Orleans-oil-painting-E-1910.jpg?w=840&h=460&c=crop'
+        };
+
+        function searchUser() {
+            const username = document.getElementById('username').value;
+            fetch(`http://127.0.0.1:8080/api/get_user_classes?username=${username}`)
+                .then(response => response.json())
+                .then(data => {
+                    const classContainer = document.getElementById('class-container');
+                    classContainer.innerHTML = '';
+                    if (data.error) {
+                        classContainer.innerHTML = `<p>${data.error}</p>`;
+                    } else {
+                        data.classes.forEach(className => {
+                            const classBox = document.createElement('div');
+                            classBox.classList.add('class-box');
+                            const classImage = classImages[className] || 'default-image-link.jpg';
+                            classBox.innerHTML = `<img src="${classImage}" alt="${className}"><h3>${className}</h3>`;
+                            classContainer.appendChild(classBox);
+                        });
+                    }
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        }
+    </script>
+</body>
+</html>
